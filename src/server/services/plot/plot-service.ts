@@ -54,6 +54,7 @@ export class PlotService implements OnStart, OnInit {
 			) as PlotComponent;
 
 			new_plot.setOwner(user);
+			print(new_plot, user)
 			return empty_plots[index];
 		}
 	}
