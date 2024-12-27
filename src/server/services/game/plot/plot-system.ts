@@ -14,6 +14,7 @@ const magnitudeB = plotVectorB.Magnitude;
 
 const plr = new Map<Players, number>();
 const q = new Map<number, number>();
+const v = new Vector3();
 
 const angle = math.acos(dotProduct / (magnitudeA * magnitudeB));
 const deg = math.deg(angle);
@@ -54,7 +55,7 @@ export class PlotSystem implements OnInit, OnStart {
 	}
 	//calculate precision of vertices and validate it O(logN) regiuhergiuherkgoaowdij
 	private calculuatePrecision(center: Vector3, size: Vector3, orientation: CFrame): Vector3[] {
-		const midPoint = size.div(2).mul(2).div(2);
+		const midPoint = size.div(2).mul(1);
 
 		const offsets = [
 			new Vector3(midPoint.X, 0, midPoint.Z),
@@ -94,7 +95,9 @@ export class PlotSystem implements OnInit, OnStart {
 	onStart(): void {
 		for (let i = 0; i < plr.size(); i++) {
 			for (let i = 0; i < q.size(); i++) {
-				warn("a");
+				if (this.isVertexWithinBoundary(v)) {
+					warn(`Input success: ${v.Magnitude}`);
+				}
 			}
 		}
 	}
