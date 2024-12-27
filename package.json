@@ -27,6 +27,8 @@
   "dependencies": {
     "@flamework/components": "^1.2.3",
     "@flamework/core": "^1.2.3",
-    "@flamework/networking": "^1.2.3"
+    "@flamework/networking": "^1.2.3",
+    "@rbxts/reflex": "^4.3.1",
+    "@rbxts/vide": "^0.5.3"
   }
 }
