@@ -26,14 +26,13 @@ class SprintingSystem {
 		this.character = character;
 		this.humanoid = character.FindFirstChildOfClass("Humanoid");
 		if (this.humanoid) {
-			// Set initial speed
 			this.humanoid.WalkSpeed = WALK_SPEED;
 		}
 	}
 
 	private setupInputHandling(): void {
 		UserInputService.InputBegan.Connect((input, gameProcessed) => {
-			if (gameProcessed) return; // Ignore input if the game UI is handling it
+			if (gameProcessed) return;
 			if (input.KeyCode === SPRINT_KEY) {
 				this.setSprint(true);
 			}
