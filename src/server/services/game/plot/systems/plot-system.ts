@@ -38,7 +38,7 @@ type pos = {
 };
 
 @Service({})
-export class PlotSystem implements OnInit, OnStart {
+export class PlotSystem implements OnInit {
 	private plot: pos;
 
 	constructor(plotCenter: Vector3, plotSize: Vector3) {
@@ -90,15 +90,5 @@ export class PlotSystem implements OnInit, OnStart {
 
 			return new Vector3(clampedX, clampedY, position.Z);
 		};
-	}
-
-	onStart(): void {
-		for (let i = 0; i < plr.size(); i++) {
-			for (let i = 0; i < q.size(); i++) {
-				if (this.isVertexWithinBoundary(v)) {
-					warn(`Input success: ${v.Magnitude}`);
-				}
-			}
-		}
 	}
 }
