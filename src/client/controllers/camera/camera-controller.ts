@@ -1,8 +1,6 @@
-import { Controller, OnStart } from "@flamework/core";
+import { Service, OnStart } from "@flamework/core";
 
-@Controller({})
+@Service({})
 export class CameraController implements OnStart {
-    onStart() {
-        
-    }
+	onStart() {}
 }
