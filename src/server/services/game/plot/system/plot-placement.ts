@@ -5,13 +5,14 @@ import { Conditioner } from "shared/utils/conditioner";
 import { InputManager, StandardActionBuilder } from "@rbxts/mechanism";
 import { Janitor } from "@rbxts/better-janitor";
 import PlayerEntity from "server/services/player/player-entity";
+import { getRawInput, getRawInputFromEnum } from "@rbxts/mechanism/out/common";
 
 const gridSize = 4;
 const height = 4;
 const size = 4;
 
 const input = new InputManager();
-const action = new StandardActionBuilder(Enum.KeyCode.A, Enum.KeyCode.MouseLeftButton)
+const action = new StandardActionBuilder(Enum.KeyCode.C, Enum.KeyCode.MouseRightButton)
 	.setProcessed(false)
 	.setCooldown(0.25 * tick())
 	.setInputQueueing(false);
