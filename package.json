@@ -28,10 +28,6 @@
     "@flamework/components": "^1.2.3",
     "@flamework/core": "^1.2.3",
     "@flamework/networking": "^1.2.3",
-<<<<<<< HEAD
-    "@rbxts/reflex": "^4.3.1",
-    "@rbxts/services": "^1.5.5",
-=======
     "@rbxts/better-janitor": "^0.4.0",
     "@rbxts/cmdr": "^1.12.1",
     "@rbxts/fusion": "^0.2.0",
@@ -39,11 +35,11 @@
     "@rbxts/log": "^0.6.3",
     "@rbxts/matter": "^0.8.5",
     "@rbxts/mechanism": "^1.0.9",
+    "@rbxts/reflex": "^4.3.1",
     "@rbxts/roact": "^3.0.1",
     "@rbxts/services": "^1.5.5",
     "@rbxts/simplepath": "^2.2.1-ts.2",
     "@rbxts/t": "^3.1.1",
->>>>>>> f166039d7b09e413777dcac6626196c4f7b0ac08
     "@rbxts/validate-tree": "^2.0.2",
     "@rbxts/vide": "^0.5.3"
   }
