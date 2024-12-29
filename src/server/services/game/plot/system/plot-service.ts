@@ -1,7 +1,7 @@
 import { BaseComponent, Components } from "@flamework/components";
 import { Service, OnStart, OnInit, Dependency } from "@flamework/core";
 import PlotComponent from "server/components/plot-component";
-import PlayerEntity from "../player/player-entity";
+import PlayerEntity from "../../../player/player-entity";
 import { Conditioner } from "shared/utils/conditioner";
 
 /**
@@ -54,7 +54,7 @@ export class PlotService implements OnStart, OnInit {
 			) as PlotComponent;
 
 			new_plot.setOwner(user);
-			print(new_plot, user)
+			print(new_plot, user);
 			return empty_plots[index];
 		}
 	}

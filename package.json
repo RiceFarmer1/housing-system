@@ -29,8 +29,10 @@
     "@flamework/core": "^1.2.3",
     "@flamework/networking": "^1.2.3",
     "@rbxts/better-janitor": "^0.4.0",
+    "@rbxts/cmdr": "^1.12.1",
     "@rbxts/log": "^0.6.3",
     "@rbxts/matter": "^0.8.5",
+    "@rbxts/mechanism": "^1.0.9",
     "@rbxts/services": "^1.5.5",
     "@rbxts/validate-tree": "^2.0.2",
     "@rbxts/vide": "^0.5.3"
