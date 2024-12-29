@@ -4,6 +4,7 @@ import { Serializer } from "../serializer/serializer";
 import { Conditioner } from "shared/utils/conditioner";
 import { InputManager, StandardActionBuilder } from "@rbxts/mechanism";
 import { Janitor } from "@rbxts/better-janitor";
+import PlayerEntity from "server/services/player/player-entity";
 
 const gridSize = 4;
 const height = 4;
@@ -39,10 +40,6 @@ remote.OnServerEvent.Connect(() => {
 		placement.Anchored = true;
 		placement.Size = new Vector3(size, size, size);
 	});
-
-	action.deactivated.Connect(() => {
-		warn(`Deactivated`);
-	});
 });
 
 @Service({})
@@ -50,12 +47,23 @@ export class PlotSystem implements OnInit {
 	private readonly validator: Conditioner.ConditionValidator = new Conditioner.ConditionValidator();
 	private readonly janitor = new Janitor<string>();
 
-	constructor(private readonly serializer: Serializer) {}
+	public playerValidator(user: PlayerEntity) {
+		if (!user) {
+			this.validator.checkForNullable("Failed to find player", user);
+		}
+		action.deactivated.Connect(() => {
+			warn(`Deactivated`);
+		});
+	}
 
 	onInit(): void | Promise<void> {
-		function setAttribute() {
-			const plr = Players.LocalPlayer;
-			plr.SetAttribute(HttpService.GenerateGUID(false), 1);
+		function logForError(msg: string) {
+			warn(msg, 2);
+		}
+
+		if (remote.IsA("RemoteEvent")) {
+			logForError("Firing to server");
+			remote.FireAllClients(action.rawInputs);
 		}
 	}
 }
