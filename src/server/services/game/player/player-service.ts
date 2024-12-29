@@ -20,10 +20,6 @@ export interface Character extends Model {
 	};
 }
 
-export async function promiseCharacter(character: Model): Promise<Character> {
-	return promiseTree(character, characterSchema).timeout(30, "Character timed out");
-}
-
 export function onPlayerAdded(callback: (player: Player) => void) {
 	const connection = Players.PlayerAdded.Connect(callback);
 
