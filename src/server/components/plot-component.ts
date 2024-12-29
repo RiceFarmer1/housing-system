@@ -8,10 +8,10 @@ interface Attributes {}
 	tag: "Plot",
 })
 export default class PlotComponent extends BaseComponent<Attributes> implements OnStart {
-    /**
-     * Variable to holds the current owner of the plot
-     * @private
-     */
+	/**
+	 * Variable to holds the current owner of the plot
+	 * @private
+	 */
 	private player: PlayerEntity | unknown;
 
 	constructor() {
@@ -20,9 +20,9 @@ export default class PlotComponent extends BaseComponent<Attributes> implements 
 
 	onStart() {}
 
-    public setOwner(player: PlayerEntity | unknown) {
-        this.player = player
-    }
+	public setOwner(player: PlayerEntity | unknown) {
+		this.player = player;
+	}
 
 	public getOwner(): PlayerEntity | unknown {
 		return this.player;

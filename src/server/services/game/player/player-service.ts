@@ -5,50 +5,54 @@ import { promiseTree } from "@rbxts/validate-tree";
 const player = Players.LocalPlayer;
 
 const characterSchema = {
-	$className: "Model",
-	HumanoidRootPart: "BasePart",
-	Humanoid: {
-		$className: "Humanoid",
-		Animator: "Animator",
-	},
+    $className: "Model",
+    HumanoidRootPart: "BasePart",
+    Humanoid: {
+        $className: "Humanoid",
+        Animator: "Animator",
+    },
 } as const;
 
 export interface Character extends Model {
-	HumanoidRootPart: BasePart;
-	Humanoid: Humanoid & {
-		Animator: Animator;
-	};
+    HumanoidRootPart: BasePart;
+    Humanoid: Humanoid & {
+        Animator: Animator;
+    };
+}
+
+export async function promiseCharacter(character: Model): Promise<Character> {
+    return promiseTree(character, characterSchema).timeout(30, "Character timed out");
 }
 
 export function onPlayerAdded(callback: (player: Player) => void) {
-	const connection = Players.PlayerAdded.Connect(callback);
+    const connection = Players.PlayerAdded.Connect(callback);
 
-	for (const player of Players.GetPlayers()) {
-		callback(player);
-	}
+    for (const player of Players.GetPlayers()) {
+        callback(player);
+    }
 
-	return () => {
-		connection.Disconnect();
-	};
+    return () => {
+        connection.Disconnect();
+    };
 }
 
 @Service({})
 export class PlayerService implements OnStart, OnInit {
-	onStart() {
-		function plotValidator(): boolean {
-			//if statements to check if player is validated to own a plot
+    onStart() {
+        function plotValidator(): boolean {
+            //if statements to check if player is validated to own a plot
 
-			if (!player?.IsA("Player")) {
-				return false;
-			} else addAttribute(player);
+            if (!player?.IsA("Player")) {
+                return false;
+            } else addAttribute(player);
 
-			return true;
-		}
+            return true;
+        }
 
-		function addAttribute(plr: Player) {
-			plr.SetAttribute("Owner", 1);
-		}
-	}
+        function addAttribute(plr: Player) {
+            plr.SetAttribute("Owner", 1);
+        }
+    }
 
-	onInit(): void | Promise<void> {}
+    onInit(): void | Promise<void> {}
 }
