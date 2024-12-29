@@ -2,6 +2,7 @@ import { Service, OnStart, OnInit } from "@flamework/core";
 import { Janitor } from "@rbxts/better-janitor";
 import { Logger } from "@rbxts/log";
 import { CollectionService, Players, RunService, Workspace } from "@rbxts/services";
+import { Value } from "@rbxts/fusion";
 
 export class ShopController implements OnStart {
 	constructor(readonly logger: Logger) {}

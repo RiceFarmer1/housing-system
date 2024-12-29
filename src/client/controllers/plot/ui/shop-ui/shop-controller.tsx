@@ -1,5 +1,6 @@
 import Roact from "@rbxts/roact";
 import { Players } from "@rbxts/services";
+import { Value } from "@rbxts/fusion";
 import { Remotes } from "./remotes/remote";
 import { ShopItem } from "./item-definition";
 
